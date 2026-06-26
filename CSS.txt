@@ -1,0 +1,50 @@
+/* Shared stylesheet for all pages */
+/* Universal selector */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Element selector */
+body { font-family: "Inter", Arial, sans-serif; color: #222; background-color: #f5f7f9; line-height: 1.45; }
+
+/* ID selector */
+#top-header { background-color: #083b3b; color: #fff; padding: 18px 20px; border-bottom: 4px solid #0b6b6b; }
+
+/* Class selector */
+.highlight { background-color: #fff7b2; padding: 8px 10px; border-radius: 6px; }
+
+/* Descendant selector */
+nav a { color: #0b6b6b; text-decoration: none; margin-right: 10px; }
+nav a:hover { text-decoration: underline; }
+
+/* Pseudo-class selector */
+a:hover { color: #145454; }
+
+/* Font property and font-style property */
+h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; }
+h2 { font-style: italic; }
+
+/* Color property */
+footer, .meta { color: #4a4a4a; }
+
+/* Margin property */
+.section { margin: 18px 0; }
+
+/* Padding property */
+.container { padding: 18px; }
+
+/* Border property */
+.card { border: 1px solid #e0e6e9; border-radius: 8px; padding: 14px; background: #fff; }
+
+/* List-style property */
+ul, ol { margin-left: 18px; padding-left: 12px; }
+ul { list-style-type: square; }
+
+/* Specifics for forms and media */
+input, textarea, select, button { font: inherit; }
+input, textarea, select { border: 1px solid #d0d7da; padding: 8px; border-radius: 6px; }
+button { background: #0b6b6b; color: #fff; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; }
+button:hover { background: #095454; }
+
+/* Responsive */
+@media (max-width: 700px) {
+  .two-col { display: block; }
+}
