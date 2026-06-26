@@ -3,70 +3,362 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Cover Letter — Marin Thistledown</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Careers | Marin Thistledown</title>
+  <style>
+    :root {
+      --bg: #0f1720;
+      --bg-soft: #16202b;
+      --panel: #f5efe6;
+      --panel-2: #fffaf2;
+      --ink: #1e1a16;
+      --muted: #63584e;
+      --accent: #2f6f68;
+      --accent-2: #8a5a2b;
+      --line: rgba(30, 26, 22, 0.12);
+      --shadow: 0 22px 48px rgba(6, 10, 15, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(47, 111, 104, 0.18), transparent 24%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+    }
+
+    .page {
+      width: min(1100px, calc(100% - 32px));
+      margin: 32px auto;
+      background: rgba(245, 239, 230, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    header {
+      padding: 32px;
+      background:
+        linear-gradient(135deg, rgba(47, 111, 104, 0.16), rgba(138, 90, 43, 0.08)),
+        #f7f1e7;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: var(--accent);
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      line-height: 1.02;
+    }
+
+    .intro {
+      max-width: 68ch;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.04rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      padding: 16px 32px 0;
+    }
+
+    nav strong {
+      color: var(--accent-2);
+    }
+
+    nav a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      padding: 28px 32px 34px;
+    }
+
+    .card {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .card h2,
+    .card h3 {
+      margin-bottom: 12px;
+      color: var(--accent-2);
+    }
+
+    .roles {
+      display: grid;
+      gap: 16px;
+    }
+
+    .role {
+      padding: 16px;
+      border-radius: 14px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .role h3 {
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 1.1rem;
+    }
+
+    .role p {
+      margin-bottom: 10px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .tagrow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(47, 111, 104, 0.12);
+      color: var(--accent);
+      font-size: 0.9rem;
+      border: 1px solid rgba(47, 111, 104, 0.14);
+    }
+
+    .stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .panel-list {
+      margin: 0;
+      padding-left: 1.2rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .panel-note {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.98rem;
+    }
+
+    caption {
+      caption-side: top;
+      text-align: left;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--accent-2);
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+    }
+
+    footer {
+      padding: 0 32px 28px;
+      color: var(--muted);
+    }
+
+    .footer-box {
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 860px) {
+      .content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 16px, 1100px);
+        margin: 16px auto;
+      }
+
+      header,
+      nav,
+      .content,
+      footer {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header id="top-header">
-    <h1>Cover Letter</h1>
-    <p><span>From:</span> Marin Thistledown — Arcane Cartographer</p>
-    <hr>
-  </header>
+  <div class="page">
+    <header>
+      <p class="eyebrow">Career Opportunities</p>
+      <h1>Marin Thistledown</h1>
+      <p class="intro">
+        I build careful, structured work around archives, maps, and preservation.
+        This page outlines the kind of roles, responsibilities, and working style
+        I pursue when joining a team that values accuracy, context, and steady follow-through.
+      </p>
+    </header>
 
-  <nav class="container">
-    <strong>Related:</strong>
-    <a href="resume.html">Résumé</a>
-    <a href="projects.html">Projects</a>
-    <a href="portfolio.html">Portfolio</a>
-  </nav>
+    <nav>
+      <strong>Explore:</strong>
+      <a href="resume.html">Resume</a>
+      <a href="Cover Letter.html">Cover Letter</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="projects.html">Projects</a>
+    </nav>
 
-  <main class="container">
-    <section class="section card">
-      <article>
-        <h2>Application for Conservator Fellowship</h2>
-        <p>
-          Dear Selection Committee,
-        </p>
-        <p>
-          I write to express my interest in the Conservator Fellowship. Over the
-          last decade I have specialized in recovering and stabilizing fragile
-          cartographic materials from wetland contexts. My practice combines
-          careful fieldwork, experimental dye chemistry, and the preservation
-          of encoded features on vellum.
-        </p>
-        <p>
-          During recent projects I developed a low-moisture translocation
-          method that reduced handling loss by <strong>over 40%</strong> and a
-          sigil-safe cataloguing workflow that preserves sensitive markings.
-          These methods complement a teaching practice in which I <em>coach</em>
-          apprentices in slow-hand techniques and hazard-aware surveying.
-        </p>
-        <p>
-          I am particularly drawn to this fellowship because of its emphasis on
-          community archives and the conservation of vernacular maps. I would
-          welcome the chance to contribute my practical experience and to learn
-          from your staff.
-        </p>
-        <p>
-          Thank you for considering my application. I look forward to the
-          possibility of discussing how my experience might serve your
-          collection.
-        </p>
-        <p>
-          Sincerely,<br>
-          <span>Marin Thistledown</span>
-        </p>
-        <p>—</p>
-        <p class="highlight">Note: A portfolio of recovered items and methodology notes is available at the linked pages above.</p>
-      </article>
-    </section>
-  </main>
+    <main class="content">
+      <section class="card">
+        <h2>Open Roles</h2>
+        <div class="roles">
+          <article class="role">
+            <h3>Archive Specialist</h3>
+            <p>
+              A strong fit for organizations that need orderly record systems,
+              descriptive notes, and dependable handling of fragile materials.
+            </p>
+            <div class="tagrow">
+              <span class="tag">Documentation</span>
+              <span class="tag">Preservation</span>
+              <span class="tag">Metadata</span>
+            </div>
+          </article>
 
-  <footer id="page-footer" class="container">
-    <section>
-      <p><mark>Confidential: for selection committee use only.</mark></p>
-      <p><em>Last updated on application submission.</em></p>
-    </section>
-  </footer>
+          <article class="role">
+            <h3>Field Mapping Assistant</h3>
+            <p>
+              Suited to survey work, route planning, and data collection in places
+              where the details matter and the environment changes quickly.
+            </p>
+            <div class="tagrow">
+              <span class="tag">Survey Support</span>
+              <span class="tag">Data Entry</span>
+              <span class="tag">Spatial Review</span>
+            </div>
+          </article>
+
+          <article class="role">
+            <h3>Collections Coordinator</h3>
+            <p>
+              Useful for teams that need someone who can keep items moving,
+              communicate clearly, and maintain consistency across multiple projects.
+            </p>
+            <div class="tagrow">
+              <span class="tag">Scheduling</span>
+              <span class="tag">Workflow</span>
+              <span class="tag">Team Support</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <aside class="stack">
+        <section class="card">
+          <h3>What I Bring</h3>
+          <ul class="panel-list">
+            <li>Methodical work habits and clear documentation</li>
+            <li>Respect for sensitive or one-of-a-kind materials</li>
+            <li>Experience balancing independent work with team handoffs</li>
+            <li>A steady approach to projects that require patience</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h3>Ideal Work Environment</h3>
+          <table>
+            <caption>Preferences</caption>
+            <thead>
+              <tr>
+                <th>Factor</th>
+                <th>Preference</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Culture</td>
+                <td>Focused, respectful, and organized</td>
+              </tr>
+              <tr>
+                <td>Projects</td>
+                <td>Longer-term work with visible impact</td>
+              </tr>
+              <tr>
+                <td>Collaboration</td>
+                <td>Small teams with clear responsibilities</td>
+              </tr>
+              <tr>
+                <td>Growth</td>
+                <td>Room to improve processes and learn new tools</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="card">
+          <h3>Notes</h3>
+          <p class="panel-note">
+            The goal of this page is to summarize the type of career path I would
+            pursue, not to list every past assignment. It is designed to complement
+            the resume and cover letter with a broader picture of fit.
+          </p>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="footer-box">
+        <p><strong>Contact focus:</strong> archival work, mapping support, and collection coordination.</p>
+        <p><strong>Status:</strong> open to carefully scoped opportunities.</p>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
